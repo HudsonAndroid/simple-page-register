@@ -1,0 +1,22 @@
+plugins {
+    id 'maven-publish'
+}
+
+task generateSourcesJar(type: Jar){
+    from android.sourceSets.main.java.srcDirs
+    classifier 'sources'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+
+                groupId = 'com.hudson.simple-page-register'
+                artifactId = 'page-annotation'
+                version = '1.0.0'
+            }
+        }
+    }
+}
