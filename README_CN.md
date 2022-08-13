@@ -1,12 +1,10 @@
-# simple-page-register
+# 轻量级页面注册器
 
-[中文](README_CN.md)
+给页面快速注册用于demo展示的注入器。
 
-Simple page reigster for android demo page's display.
+过往的提供多个demo页面的方式是往绑定多个按钮，每个按钮处理点击跳转事件，过程较为繁琐臃肿，例如：
 
-Maybe your old code like this:
-
-<img src="images/old_style.png" title="" alt="old_style.png" data-align="center">
+<img src="images/old_style.png" title="" alt="old" data-align="center">
 
 ```kotlin
 button1.setOnClickListener {
@@ -24,9 +22,9 @@ button4.setOnClickListener {
 //....
 ```
 
-If you want to register the page quickly and show your demo content, `simple-page-register` is the most appropriate.
+如果你希望快速完成页面注册，而不是处理这些繁琐的事情，simple-page-register将会帮助你快速完成。
 
-<img src="images/new_style.png" title="" alt="new_style.png" data-align="center">
+<img src="images/new_style.png" title="" alt="new" data-align="center">
 
 ```kotlin
 // Register your pages by loop, simple-page-register will help you collect the page 
@@ -41,3 +39,5 @@ DefaultHostPageRegister.getPages().forEach {
     )
 }
 ```
+
+
