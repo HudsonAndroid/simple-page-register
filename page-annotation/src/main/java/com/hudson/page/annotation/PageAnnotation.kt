@@ -1,6 +1,6 @@
 package com.hudson.page.annotation
 
-@Target(AnnotationTarget.TYPE)
+@Target(AnnotationTarget.CLASS)
 @Retention(AnnotationRetention.SOURCE)
 annotation class PageAnnotation(
     /**
