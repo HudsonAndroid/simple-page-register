@@ -51,7 +51,11 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
-    // page-register
-    implementation project(":page-annotation") // +
-    kapt project(":page-annotation-processor") // +
+    // simple-page-register local dependency
+//    implementation project(":page-annotation") // +
+//    kapt project(":page-annotation-processor") // +
+    // simple-page-register remote dependency
+    implementation "com.github.HudsonAndroid.simple-page-register:page-annotation:1.0.0"
+    kapt "com.github.HudsonAndroid.simple-page-register:page-annotation-processor:1.0.0"
+
 }

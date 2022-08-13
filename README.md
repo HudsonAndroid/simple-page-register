@@ -41,3 +41,21 @@ DefaultHostPageRegister.getPages().forEach {
     )
 }
 ```
+
+## Usage
+
+### 1. Add the JitPack repository to your build file（Higher Version on settings.gradle）
+
+```groovy
+maven { url 'https://jitpack.io' }
+```
+
+### 2. Add the dependency on target module
+
+```groovy
+// simple-page-register
+implementation "com.github.HudsonAndroid.simple-page-register:page-annotation:1.0.0" 
+kapt "com.github.HudsonAndroid.simple-page-register:page-annotation-processor:1.0.0"
+```
+
+More sample, see app example.

@@ -40,4 +40,20 @@ DefaultHostPageRegister.getPages().forEach {
 }
 ```
 
+## 用法
 
+### 1. 给项目添加jitpack repository
+
+```groovy
+maven { url 'https://jitpack.io' }
+```
+
+### 2. 在对应的module中添加`simple-page-register`依赖
+
+```groovy
+// simple-page-register
+implementation "com.github.HudsonAndroid.simple-page-register:page-annotation:1.0.0" 
+kapt "com.github.HudsonAndroid.simple-page-register:page-annotation-processor:1.0.0"
+```
+
+更多请参考app这个示例。
