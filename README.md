@@ -44,18 +44,71 @@ DefaultHostPageRegister.getPages().forEach {
 
 ## Usage
 
-### 1. Add the JitPack repository to your build file（Higher Version on settings.gradle）
+### 1. Add dependencies
+
+#### 1.1 Add the JitPack repository to your build file（Higher Version on settings.gradle）
 
 ```groovy
 maven { url 'https://jitpack.io' }
 ```
 
-### 2. Add the dependency on target module
+#### 1.2 Add the dependency on target module
 
 ```groovy
 // simple-page-register
 implementation "com.github.HudsonAndroid.simple-page-register:page-annotation:1.0.0" 
 kapt "com.github.HudsonAndroid.simple-page-register:page-annotation-processor:1.0.0"
+```
+
+### 2. Config pages
+
+Config your detail page like this:
+
+```kotlin
+@PageAnnotation("Yellow Page")
+class ColorYellowActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_color_yellow)
+    }
+}
+```
+
+After you rebuild project, the pages will be collected in `XXRegister`:
+
+```java
+public class DefaultHostPageRegister {
+  public static Map<Class, String> getPages() {
+    Map<Class,String> pages = new HashMap<>();
+    pages.put(ColorGreenActivity.class, "Green Page");
+    pages.put(ColorYellowActivity.class, "Yellow Page");
+    return pages;
+  }
+}
+```
+
+So you might use it this way:
+
+```kotlin
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+
+        // Register for color group
+        DefaultHostPageRegister.getPages().forEach {
+            binding.llSampleGroup1.addView(
+                Button(this).apply {
+                    text = it.value
+                    setOnClickListener { _->
+                        startActivity(Intent(this@MainActivity, it.key))
+                    }
+                }
+            )
+        }
+    }
+}
 ```
 
 More sample, see app example.

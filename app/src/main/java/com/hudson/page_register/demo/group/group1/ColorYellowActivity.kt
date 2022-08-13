@@ -5,7 +5,7 @@ import android.os.Bundle
 import com.hudson.page.annotation.PageAnnotation
 import com.hudson.page_register.demo.R
 
-@PageAnnotation("SubPage for some sample")
+@PageAnnotation("Yellow Page")
 class ColorYellowActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
